@@ -1,6 +1,6 @@
 ---
 name: evidence-driven-software-engineering
-version: 0.3.1
+version: 0.4.1
 description: Use this skill when applying Evidence-driven Software Engineering to planning, implementation, testing, debugging, profiling, code review, performance optimization, or delivery verification. It turns engineering claims into explicit hypotheses, evidence plans, verification results, readiness decisions, and residual-risk reports.
 ---
 
@@ -101,6 +101,10 @@ Evidence Card
 
 For complex work, load `references/evidence-cards.md` and use the stage-specific templates.
 
+For non-trivial development planning, load `references/development-planning.md`. This module contains the merged `agent-development-planner` workflow.
+
+For delivery verification, readiness decisions, E2E selection, and final handoff, load `references/delivery-verification.md`. This module contains the merged `agent-delivery-verifier` workflow.
+
 For verification standard design, load `references/verification-standards.md`. Use it to define readiness gates, user roles, E2E automation choices, and which questions must be confirmed with the user before verification begins.
 
 For Skill Effect Report retention, load `references/effect-reporting.md` and use `scripts/record_effect_report.py`. Keep at most 50 reports per reports directory.
@@ -108,6 +112,15 @@ For Skill Effect Report retention, load `references/effect-reporting.md` and use
 For version history, integration scope, and evaluation status, inspect `CHANGELOG.md`, `references/integration-manifest.md`, `references/evaluation.md`, and `references/effect-reporting.md`.
 
 ## Stage Playbooks
+
+## Built-in Modules
+
+EDSE owns these merged modules:
+
+- **Development Planning**: use `references/development-planning.md` before non-trivial feature, bug, refactor, platform, test-infrastructure, performance, reliability, security, privacy, compatibility, or E2E work.
+- **Delivery Verification**: use `references/delivery-verification.md` after implementation and before Review, user trial, production release, or final handoff.
+
+The historical `agent-development-planner` and `agent-delivery-verifier` standalone skill directories are merged into this skill and should not remain under the skills root after migration. The canonical workflows live only in this directory.
 
 ### Design
 
@@ -198,7 +211,7 @@ Use performance engineering, benchmark-driven optimization, and capacity plannin
 
 ### Delivery Verification
 
-Use this skill with `agent-delivery-verifier` before final handoff.
+Use `references/delivery-verification.md` before final handoff.
 
 - Verify requirement completion, root-cause closure, code quality, QA coverage, automated checks, E2E coverage, readiness level, and residual risk.
 - For web UI work, include browser runtime verification evidence when a dev server, preview deployment, or local route can be opened.

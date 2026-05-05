@@ -56,6 +56,7 @@ Evidence Card
 ## What It Covers
 
 - Design and architecture review.
+- Development planning before implementation.
 - Implementation and refactoring.
 - Testing strategy and coverage planning.
 - Scientific-method debugging.
@@ -65,6 +66,8 @@ Evidence Card
 - Delivery verification and readiness decisions.
 
 Detailed templates live in [`references/evidence-cards.md`](references/evidence-cards.md).
+
+The merged planning and verification modules live in [`references/development-planning.md`](references/development-planning.md) and [`references/delivery-verification.md`](references/delivery-verification.md). The older `agent-development-planner` and `agent-delivery-verifier` standalone skill directories have been removed after migration; EDSE is the canonical home.
 
 ## Scientific Method
 
@@ -119,6 +122,12 @@ Then package or validate it with the bundled skill tooling if available:
 
 ```bash
 python scripts/evaluate_static.py . --skills-root ~/.codex/skills
+```
+
+For a clean distributable archive, exclude local VCS metadata:
+
+```bash
+zip -r evidence-driven-software-engineering.zip evidence-driven-software-engineering -x '*/.git/*'
 ```
 
 This skill is designed to be portable. The report directory can be configured, and no user-specific path is required for open-source use.
@@ -195,7 +204,7 @@ Do not store secrets, tokens, private customer data, raw credentials, or unneces
 
 ## Current Status
 
-Current version: `0.3.1`.
+Current version: `0.4.1`.
 
 Static coverage is evaluated. Behavioral effectiveness still needs replay or live-task evaluation before making strong claims that EDSE reduces review cost across teams.
 # evidence-driven-software-engineering

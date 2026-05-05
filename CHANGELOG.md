@@ -6,6 +6,27 @@ Use semantic versioning for this skill.
 - **MINOR**: new evidence cards, new readiness gates, new stage playbooks, new integration guidance.
 - **MAJOR**: changed default readiness semantics, removed or renamed required workflow fields, incompatible report format changes.
 
+## 0.4.1 - 2026-05-05
+
+### Changed
+
+- Completed the directory-level merge by treating `agent-development-planner` and `agent-delivery-verifier` as removed standalone skills.
+- Static evaluator now checks that the two former standalone skill directories are absent from the skills root after migration.
+- README now documents clean distributable packaging that excludes local VCS metadata.
+
+## 0.4.0 - 2026-05-05
+
+### Added
+
+- Merged `agent-development-planner` into `references/development-planning.md`.
+- Merged `agent-delivery-verifier` into `references/delivery-verification.md`.
+- EDSE now declares these as built-in modules and canonical workflow owners.
+
+### Changed
+
+- README now documents EDSE as the canonical home for planning and delivery verification.
+- Static evaluator now checks merged planning and delivery verification module coverage.
+
 ## 0.3.1 - 2026-05-05
 
 ### Added

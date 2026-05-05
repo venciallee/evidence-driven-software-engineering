@@ -71,7 +71,7 @@ Review the latest 10-20 reports periodically.
 - If unnecessary questions recur, strengthen the “infer locally before asking” rule.
 - If reports lack evidence, strengthen Evidence Card requirements or downstream verifier gates.
 - If browser issues escape, expand Browser Runtime Verification or E2E suite selection.
-- If Production-ready is overclaimed, harden readiness language in `agent-delivery-verifier`.
+- If Production-ready is overclaimed, harden readiness language in `references/delivery-verification.md`.
 - If reports are too verbose, simplify the template but keep the core fields stable.
 
 ## Privacy
