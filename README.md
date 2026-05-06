@@ -69,6 +69,29 @@ Detailed templates live in [`references/evidence-cards.md`](references/evidence-
 
 The merged planning and verification modules live in [`references/development-planning.md`](references/development-planning.md) and [`references/delivery-verification.md`](references/delivery-verification.md). The older `agent-development-planner` and `agent-delivery-verifier` standalone skill directories have been removed after migration; EDSE is the canonical home.
 
+## Verification Skill Design
+
+The verification side of EDSE is the merged home of the former `agent-delivery-verifier` skill. Its purpose is not to run more commands; its purpose is to turn a delivery claim into an evidence-backed readiness decision.
+
+Design goals:
+
+- Convert "is it done?" into a falsifiable claim with a target gate: Review-ready, User-trial-ready, Production-ready, or Not-ready.
+- Align `Requirement -> Solution Mechanism -> Verification Standard` before accepting an implementation as complete.
+- Select the smallest evidence set that proves the claim, including code inspection, automated tests, E2E checks, browser runtime evidence, logs, traces, screenshots, or manual gates when relevant.
+- Keep the agent working through failed checks until the required gate passes or a real external blocker is proven.
+- Produce a handoff that states what passed, what failed, what remains risky, and what must happen next.
+
+Problems it solves:
+
+- Build, typecheck, or lint success being treated as proof that user-facing behavior works.
+- Browser startup or route load being mistaken for full product acceptance.
+- Agents asking the user after every failed command instead of continuing the evidence loop.
+- Reviews lacking a clear map from requirements to implementation mechanism to verification evidence.
+- Overclaiming Production-ready status when the actual evidence only supports Review-ready or User-trial-ready.
+- Residual risks being hidden in vague summaries instead of stated as explicit readiness blockers or accepted limitations.
+
+The verification module works best when paired with [`references/verification-standards.md`](references/verification-standards.md) before deep verification and [`references/evidence-cards.md`](references/evidence-cards.md) for the final Delivery Verification Evidence Card.
+
 ## Scientific Method
 
 EDSE treats the Scientific Method as the diagnostic core of software work:
